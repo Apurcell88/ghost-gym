@@ -17,6 +17,9 @@ const Nav = () => {
         <Link href="/sign-up">
           <button>Sign Up</button>
         </Link>
+        <Link href="/about">
+          <button>About Us</button>
+        </Link>
       </div>
     </nav>
   );
