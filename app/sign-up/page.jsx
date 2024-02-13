@@ -1,3 +1,5 @@
+"use client";
+
 const signUpForm = () => {
   const handleChange = (e) => {};
 
@@ -22,7 +24,7 @@ const signUpForm = () => {
       </h1>
       <form className="flex flex-col gap-5 text-white">
         <div>
-          <label for="firstName" className="sign-up-form--label">
+          <label htmlFor="firstName" className="sign-up-form--label">
             First Name:{" "}
           </label>
           <input
@@ -35,7 +37,7 @@ const signUpForm = () => {
         </div>
 
         <div>
-          <label for="lastName" className="sign-up-form--label">
+          <label htmlFor="lastName" className="sign-up-form--label">
             Last Name:{" "}
           </label>
           <input
@@ -48,7 +50,7 @@ const signUpForm = () => {
         </div>
 
         <div>
-          <label for="userName" className="sign-up-form--label">
+          <label htmlFor="userName" className="sign-up-form--label">
             Username:{" "}
           </label>
           <input
@@ -61,7 +63,7 @@ const signUpForm = () => {
         </div>
 
         <div>
-          <label for="password" className="sign-up-form--label">
+          <label htmlFor="password" className="sign-up-form--label">
             Password:{" "}
           </label>
           <input
@@ -74,7 +76,7 @@ const signUpForm = () => {
         </div>
 
         <div>
-          <label for="confirmPassword" className="sign-up-form--label">
+          <label htmlFor="confirmPassword" className="sign-up-form--label">
             Confirm Password:{" "}
           </label>
           <input
@@ -87,7 +89,7 @@ const signUpForm = () => {
         </div>
 
         <div>
-          <label for="age" className="sign-up-form--label">
+          <label htmlFor="age" className="sign-up-form--label">
             Are you a personal trainer?{" "}
           </label>
           <select name="trainer" id="trainer" className="text-black">
@@ -97,7 +99,7 @@ const signUpForm = () => {
         </div>
 
         <div>
-          <label for="age" className="sign-up-form--label">
+          <label htmlFor="age" className="sign-up-form--label">
             Age:{" "}
           </label>
           <input
@@ -110,7 +112,7 @@ const signUpForm = () => {
         </div>
 
         <div>
-          <label for="phoneNumber" className="sign-up-form--label">
+          <label htmlFor="phoneNumber" className="sign-up-form--label">
             Phone Number:{" "}
           </label>
           <input
@@ -123,7 +125,7 @@ const signUpForm = () => {
         </div>
 
         <div>
-          <label for="email" className="sign-up-form--label">
+          <label htmlFor="email" className="sign-up-form--label">
             Email:{" "}
           </label>
           <input
@@ -136,7 +138,7 @@ const signUpForm = () => {
         </div>
 
         <div>
-          <label for="consent" className="sign-up-form--label">
+          <label htmlFor="consent" className="sign-up-form--label">
             Consent:{" "}
           </label>
           <input type="checkbox" id="consent" name="consent" required />
