@@ -9,10 +9,11 @@ export default function Home() {
         We are the ultimate destination for clients to match with personal
         trainers. Our innovative gym concept provides a flexible and
         professional space where trainers can rent facilities to deliver
-        personalized fitness sessions tailored to the client's needs. At Ghost
-        Gym, we understand the challenges that clients face. That's why we've
-        created a vibrant and inclusive community where clients can thrive and
-        take their fitness to the next level.
+        personalized fitness sessions tailored to the client`&ampos;`s needs. At
+        Ghost Gym, we understand the challenges that clients face.
+        That`&ampos;`s why we`&ampos;`ve created a vibrant and inclusive
+        community where clients can thrive and take their fitness to the next
+        level.
       </p>
       <p>
         Join Ghost Gym today and take your personal training to the next level.
