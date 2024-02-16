@@ -21,12 +21,12 @@ export default function Home() {
         is your ultimate fitness hub.
       </p>
       <article className="flex gap-7">
-        <Link href="/client-sign-up">
+        <Link href="/sign-up/client">
           <button className="bg-slate-700 text-white w-28 h-16 text-xl rounded-md">
             Client
           </button>
         </Link>
-        <Link href="/trainer-sign-up">
+        <Link href="/sign-up/trainer">
           <button className="bg-slate-700 text-white w-28 h-16 text-xl rounded-md">
             Trainer
           </button>

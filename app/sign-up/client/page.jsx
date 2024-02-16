@@ -18,7 +18,7 @@ const clientSignUpForm = () => {
   };
 
   return (
-    <section className="bg-gray-800 h-screen flex flex-col items-center">
+    <section className="bg-gray-800 h-full flex flex-col items-center">
       <h1 className="text-center text-white text-3xl py-10">
         Sign Up For Ghost Gym
       </h1>
@@ -140,6 +140,19 @@ const clientSignUpForm = () => {
           ></textarea>
         </div>
 
+        <div className="flex flex-col gap-2">
+          <label htmlFor="goals" className="sign-up-form--label">
+            Do you have any restrictions or medical needs?
+          </label>
+          <textarea
+            className="sign-up-form--input"
+            name="goals"
+            id="goals"
+            cols="10"
+            rows="10"
+          ></textarea>
+        </div>
+
         <div>
           <label htmlFor="consent" className="sign-up-form--label">
             Consent:{" "}
@@ -148,7 +161,7 @@ const clientSignUpForm = () => {
           <span> By checking this box...</span>
         </div>
 
-        <div className="self-center text-lg">
+        <div className="self-center text-xl pb-5 hover:text-purple-400">
           <input type="submit" className="hover:cursor-pointer" />
         </div>
       </form>
