@@ -1,6 +1,6 @@
 "use client";
 
-const signUpForm = () => {
+const clientSignUpForm = () => {
   const handleChange = (e) => {};
 
   const handleSubmit = (e) => {};
@@ -11,10 +11,10 @@ const signUpForm = () => {
     username: "",
     password: "",
     confirmPassword: "",
-    personalTrainer: false,
     age: 1,
     phoneNumber: "",
     email: "",
+    fitnessGoals: "",
   };
 
   return (
@@ -90,16 +90,6 @@ const signUpForm = () => {
 
         <div>
           <label htmlFor="age" className="sign-up-form--label">
-            Are you a personal trainer?{" "}
-          </label>
-          <select name="trainer" id="trainer" className="text-black">
-            <option value="no">No</option>
-            <option value="yes">Yes</option>
-          </select>
-        </div>
-
-        <div>
-          <label htmlFor="age" className="sign-up-form--label">
             Age:{" "}
           </label>
           <input
@@ -137,6 +127,19 @@ const signUpForm = () => {
           />
         </div>
 
+        <div className="flex flex-col gap-2">
+          <label htmlFor="goals" className="sign-up-form--label">
+            What are your fitness goals?
+          </label>
+          <textarea
+            className="sign-up-form--input"
+            name="goals"
+            id="goals"
+            cols="10"
+            rows="10"
+          ></textarea>
+        </div>
+
         <div>
           <label htmlFor="consent" className="sign-up-form--label">
             Consent:{" "}
@@ -153,4 +156,4 @@ const signUpForm = () => {
   );
 };
 
-export default signUpForm;
+export default clientSignUpForm;

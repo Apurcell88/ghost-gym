@@ -20,11 +20,18 @@ export default function Home() {
         Whether you are a seasoned fitness guru or new to working out, Ghost Gym
         is your ultimate fitness hub.
       </p>
-      <Link href="/sign-up">
-        <button className="bg-slate-700 text-white w-28 h-16 text-xl rounded-md">
-          Join
-        </button>
-      </Link>
+      <article className="flex gap-7">
+        <Link href="/client-sign-up">
+          <button className="bg-slate-700 text-white w-28 h-16 text-xl rounded-md">
+            Client
+          </button>
+        </Link>
+        <Link href="/trainer-sign-up">
+          <button className="bg-slate-700 text-white w-28 h-16 text-xl rounded-md">
+            Trainer
+          </button>
+        </Link>
+      </article>
     </main>
   );
 }

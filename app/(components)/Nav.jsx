@@ -14,8 +14,11 @@ const Nav = () => {
         </Link>
 
         {/* will need a sign up form */}
-        <Link href="/sign-up">
-          <button>Sign Up</button>
+        <Link href="/client-sign-up">
+          <button>Client Sign Up</button>
+        </Link>
+        <Link href="/trainer-sign-up">
+          <button>Trainer Sign Up</button>
         </Link>
         <Link href="/about">
           <button>About Us</button>
