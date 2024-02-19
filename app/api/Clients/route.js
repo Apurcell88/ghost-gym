@@ -13,3 +13,12 @@ export async function POST(req) {
     return NextResponse.json({ message: "Error", err }, { status: 500 });
   }
 }
+
+export async function GET(req) {
+  try {
+    const clients = await Client.find();
+    return NextResponse.json({ clients }, { status: 200 });
+  } catch (err) {
+    return NextResponse.json({ message: "Error", err }, { status: 500 });
+  }
+}
