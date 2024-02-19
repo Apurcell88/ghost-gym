@@ -1,7 +1,20 @@
 "use client";
 
-const clientSignUpForm = () => {
-  const handleChange = (e) => {};
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
+
+const ClientSignUpForm = ({ client }) => {
+  const router = useRouter();
+
+  const handleChange = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
 
   const handleSubmit = (e) => {};
 
@@ -16,6 +29,8 @@ const clientSignUpForm = () => {
     email: "",
     fitnessGoals: "",
   };
+
+  const [formData, setFormData] = useState(signUpData);
 
   return (
     <section className="bg-gray-800 h-full flex flex-col items-center">
@@ -169,4 +184,4 @@ const clientSignUpForm = () => {
   );
 };
 
-export default clientSignUpForm;
+export default ClientSignUpForm;
