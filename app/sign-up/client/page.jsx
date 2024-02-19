@@ -28,6 +28,7 @@ const ClientSignUpForm = ({ client }) => {
     phoneNumber: "",
     email: "",
     fitnessGoals: "",
+    restrictions: "",
   };
 
   const [formData, setFormData] = useState(signUpData);
@@ -48,6 +49,8 @@ const ClientSignUpForm = ({ client }) => {
             name="firstName"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={signUpData.firstName}
           />
         </div>
 
@@ -61,11 +64,13 @@ const ClientSignUpForm = ({ client }) => {
             name="lastName"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={signUpData.lastName}
           />
         </div>
 
         <div>
-          <label htmlFor="userName" className="sign-up-form--label">
+          <label htmlFor="username" className="sign-up-form--label">
             Username:{" "}
           </label>
           <input
@@ -74,6 +79,8 @@ const ClientSignUpForm = ({ client }) => {
             name="username"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={signUpData.username}
           />
         </div>
 
@@ -87,6 +94,8 @@ const ClientSignUpForm = ({ client }) => {
             name="password"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={signUpData.password}
           />
         </div>
 
@@ -100,6 +109,8 @@ const ClientSignUpForm = ({ client }) => {
             name="confirmPassword"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={signUpData.confirmPassword}
           />
         </div>
 
@@ -113,6 +124,8 @@ const ClientSignUpForm = ({ client }) => {
             name="age"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={signUpData.age}
           />
         </div>
 
@@ -126,6 +139,8 @@ const ClientSignUpForm = ({ client }) => {
             name="phoneNumber"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={signUpData.phoneNumber}
           />
         </div>
 
@@ -139,6 +154,8 @@ const ClientSignUpForm = ({ client }) => {
             name="email"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={signUpData.email}
           />
         </div>
 
@@ -152,19 +169,25 @@ const ClientSignUpForm = ({ client }) => {
             id="goals"
             cols="10"
             rows="10"
+            required
+            onChange={handleChange}
+            value={signUpData.fitnessGoals}
           ></textarea>
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="goals" className="sign-up-form--label">
+          <label htmlFor="restrictions" className="sign-up-form--label">
             Do you have any restrictions or medical needs?
           </label>
           <textarea
             className="sign-up-form--input"
-            name="goals"
-            id="goals"
+            name="restrictions"
+            id="restrictions"
             cols="10"
             rows="10"
+            required
+            onChange={handleChange}
+            value={signUpData.restrictions}
           ></textarea>
         </div>
 
