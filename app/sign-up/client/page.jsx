@@ -28,6 +28,9 @@ const ClientSignUpForm = ({ client }) => {
     if (!res.ok) {
       throw new Error("Failed to create client");
     }
+
+    router.refresh();
+    router.push("/");
   };
 
   const clientSignUpData = {
@@ -172,13 +175,13 @@ const ClientSignUpForm = ({ client }) => {
         </div>
 
         <div className="flex flex-col gap-2">
-          <label htmlFor="goals" className="sign-up-form--label">
+          <label htmlFor="fitnessGoals" className="sign-up-form--label">
             What are your fitness goals?
           </label>
           <textarea
             className="sign-up-form--input"
-            name="goals"
-            id="goals"
+            name="fitnessGoals"
+            id="fitnessGoals"
             cols="10"
             rows="10"
             required
