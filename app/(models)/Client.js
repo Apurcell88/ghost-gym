@@ -12,6 +12,7 @@ const clientSchema = new Schema({
   phoneNumber: String,
   email: String,
   fitnessGoals: String,
+  restrictions: String,
 });
 
 const Client = mongoose.models.Client || mongoose.model("Client", clientSchema);

@@ -21,7 +21,7 @@ const ClientSignUpForm = ({ client }) => {
 
     const res = await fetch("/api/Clients", {
       method: "POST",
-      body: JSON.stringify({ clientSignUpData }),
+      body: JSON.stringify({ formData }),
       "content-type": "application/json",
     });
 
