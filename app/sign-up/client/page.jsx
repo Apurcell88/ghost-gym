@@ -16,9 +16,21 @@ const ClientSignUpForm = ({ client }) => {
     }));
   };
 
-  const handleSubmit = (e) => {};
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  const signUpData = {
+    const res = await fetch("/api/Clients", {
+      method: "POST",
+      body: JSON.stringify({ clientSignUpData }),
+      "content-type": "application/json",
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to create client");
+    }
+  };
+
+  const clientSignUpData = {
     firstName: "",
     lastName: "",
     username: "",
@@ -31,14 +43,14 @@ const ClientSignUpForm = ({ client }) => {
     restrictions: "",
   };
 
-  const [formData, setFormData] = useState(signUpData);
+  const [formData, setFormData] = useState(clientSignUpData);
 
   return (
     <section className="bg-gray-800 h-full flex flex-col items-center">
       <h1 className="text-center text-white text-3xl py-10">
         Sign Up For Ghost Gym
       </h1>
-      <form className="flex flex-col gap-5 text-white">
+      <form className="flex flex-col gap-5 text-white" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="firstName" className="sign-up-form--label">
             First Name:{" "}
@@ -50,7 +62,7 @@ const ClientSignUpForm = ({ client }) => {
             className="sign-up-form--input"
             required
             onChange={handleChange}
-            value={signUpData.firstName}
+            value={formData.firstName}
           />
         </div>
 
@@ -65,7 +77,7 @@ const ClientSignUpForm = ({ client }) => {
             className="sign-up-form--input"
             required
             onChange={handleChange}
-            value={signUpData.lastName}
+            value={formData.lastName}
           />
         </div>
 
@@ -80,7 +92,7 @@ const ClientSignUpForm = ({ client }) => {
             className="sign-up-form--input"
             required
             onChange={handleChange}
-            value={signUpData.username}
+            value={formData.username}
           />
         </div>
 
@@ -95,7 +107,7 @@ const ClientSignUpForm = ({ client }) => {
             className="sign-up-form--input"
             required
             onChange={handleChange}
-            value={signUpData.password}
+            value={formData.password}
           />
         </div>
 
@@ -110,7 +122,7 @@ const ClientSignUpForm = ({ client }) => {
             className="sign-up-form--input"
             required
             onChange={handleChange}
-            value={signUpData.confirmPassword}
+            value={formData.confirmPassword}
           />
         </div>
 
@@ -125,7 +137,7 @@ const ClientSignUpForm = ({ client }) => {
             className="sign-up-form--input"
             required
             onChange={handleChange}
-            value={signUpData.age}
+            value={formData.age}
           />
         </div>
 
@@ -140,7 +152,7 @@ const ClientSignUpForm = ({ client }) => {
             className="sign-up-form--input"
             required
             onChange={handleChange}
-            value={signUpData.phoneNumber}
+            value={formData.phoneNumber}
           />
         </div>
 
@@ -155,7 +167,7 @@ const ClientSignUpForm = ({ client }) => {
             className="sign-up-form--input"
             required
             onChange={handleChange}
-            value={signUpData.email}
+            value={formData.email}
           />
         </div>
 
@@ -171,7 +183,7 @@ const ClientSignUpForm = ({ client }) => {
             rows="10"
             required
             onChange={handleChange}
-            value={signUpData.fitnessGoals}
+            value={formData.fitnessGoals}
           ></textarea>
         </div>
 
@@ -187,7 +199,7 @@ const ClientSignUpForm = ({ client }) => {
             rows="10"
             required
             onChange={handleChange}
-            value={signUpData.restrictions}
+            value={formData.restrictions}
           ></textarea>
         </div>
 
