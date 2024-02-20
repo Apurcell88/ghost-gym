@@ -1,10 +1,16 @@
+"use client";
+
 import React from "react";
 
 const SignIn = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
   return (
     <div className="bg-slate-800 h-[90vh] flex flex-col justify-center">
       <h1 className="text-center text-3xl pb-8 text-white">Please Sign In</h1>
-      <form className="flex flex-col items-center gap-5">
+      <form className="flex flex-col items-center gap-5" onClick={handleSubmit}>
         <div>
           <label htmlFor="username" className="sign-up-form--label">
             Username:{" "}
