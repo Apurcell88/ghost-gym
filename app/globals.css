@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 .sign-up-form--label {
-  @apply pr-3;
+  @apply pr-3 text-white;
 }
 
 .sign-up-form--input {
