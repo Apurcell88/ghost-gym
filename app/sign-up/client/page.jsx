@@ -19,18 +19,24 @@ const ClientSignUpForm = ({ client }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const res = await fetch("/api/Clients", {
-      method: "POST",
-      body: JSON.stringify({ formData }),
-      "content-type": "application/json",
-    });
+    if (formData.password === formData.confirmPassword) {
+      const res = await fetch("/api/Clients", {
+        method: "POST",
+        body: JSON.stringify({ formData }),
+        "content-type": "application/json",
+      });
 
-    if (!res.ok) {
-      throw new Error("Failed to create client");
+      if (!res.ok) {
+        throw new Error("Failed to create client");
+      }
+    } else {
+      alert("Password does not match");
     }
 
-    router.refresh();
-    router.push("/");
+    if (formData.password === formData.confirmPassword) {
+      router.refresh();
+      router.push("/");
+    }
   };
 
   const clientSignUpData = {
