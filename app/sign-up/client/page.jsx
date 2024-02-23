@@ -27,16 +27,22 @@ const ClientSignUpForm = ({ client }) => {
       });
 
       if (!res.ok) {
-        throw new Error("Failed to create client");
+        // throw new Error("Failed to create client");
+        alert("Username already exists. Please enter a different one.");
+      }
+
+      if (formData.password === formData.confirmPassword && res.ok) {
+        router.refresh();
+        router.push("/");
       }
     } else {
       alert("Password does not match");
     }
 
-    if (formData.password === formData.confirmPassword) {
-      router.refresh();
-      router.push("/");
-    }
+    // if (formData.password === formData.confirmPassword && res.ok) {
+    //   router.refresh();
+    //   router.push("/");
+    // }
   };
 
   const clientSignUpData = {
