@@ -27,13 +27,13 @@ const ClientSignUpForm = ({ client }) => {
       });
 
       if (!res.ok) {
-        // throw new Error("Failed to create client");
-        alert("Username already exists. Please enter a different one.");
+        throw new Error("Failed to create client");
+        // alert("Username already exists. Please enter a different one.");
       }
 
       if (formData.password === formData.confirmPassword && res.ok) {
         router.refresh();
-        router.push("/");
+        router.push("/"); // want to push to individual homepage. Must be customized with client's first and last name that's stored in the db
       }
     } else {
       alert("Password does not match");
