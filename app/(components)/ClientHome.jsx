@@ -1,12 +1,15 @@
 import React from "react";
 
-function ClientHome({ client }) {
-  //   console.log(client);
+const ClientHome = ({ client }) => {
   return (
     <div>
-      <h1>Client Home</h1>
+      <div>
+        <h1>
+          {`Welcome ${client.foundClient.firstName} ${client.foundClient.lastName}`}
+        </h1>
+      </div>
     </div>
   );
-}
+};
 
 export default ClientHome;

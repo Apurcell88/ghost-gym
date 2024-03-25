@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ClientHome from "@/app/(components)/ClientHome";
 
 const getClientById = async (id) => {
@@ -13,11 +13,18 @@ const getClientById = async (id) => {
   return res.json();
 };
 
-async function ClientPage({ params }) {
-  const client = await getClientById(params.id);
-  console.log(client);
+let foundClient;
 
-  return <ClientHome client={client} />;
-}
+const ClientPage = async ({ params }) => {
+  foundClient = await getClientById(params.id);
 
-export default ClientHome;
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <ClientHome client={foundClient} />
+      </Suspense>
+    </div>
+  );
+};
+
+export default ClientPage;
