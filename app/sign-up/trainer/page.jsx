@@ -1,11 +1,46 @@
 "use client";
 
-const trainerSignUpForm = () => {
-  const handleChange = (e) => {};
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 
-  const handleSubmit = (e) => {};
+const TrainerSignUpForm = () => {
+  const router = useRouter();
 
-  const signUpData = {
+  const handleChange = (e) => {
+    const value = e.target.value;
+    const name = e.target.name;
+
+    setTrainerData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (trainerData.password === trainerData.confirmPassword) {
+      const res = await fetch("/api/Trainers", {
+        method: "POST",
+        body: JSON.stringify({ trainerData }),
+        "content-type": "application/json",
+      });
+
+      if (!res.ok) {
+        throw new Error("Failed to create trainer");
+        // alert("Username already exists. Please enter a different one.");
+      }
+
+      if (trainerData.password === trainerData.confirmPassword && res.ok) {
+        router.refresh();
+        router.push("/"); // want to push to individual homepage. Must be customized with client's first and last name that's stored in the db
+      }
+    } else {
+      alert("Password does not match");
+    }
+  };
+
+  const trainerSignUpData = {
     firstName: "",
     lastName: "",
     password: "",
@@ -17,12 +52,14 @@ const trainerSignUpForm = () => {
     aboutMe: "",
   };
 
+  const [trainerData, setTrainerData] = useState(trainerSignUpData);
+
   return (
     <section className="bg-gray-800 h-screen flex flex-col items-center">
       <h1 className="text-center text-white text-3xl py-10">
         Sign Up For Ghost Gym
       </h1>
-      <form className="flex flex-col gap-5 text-white">
+      <form className="flex flex-col gap-5 text-white" onSubmit={handleSubmit}>
         <div>
           <label htmlFor="firstName" className="sign-up-form--label">
             First Name:{" "}
@@ -33,6 +70,8 @@ const trainerSignUpForm = () => {
             name="firstName"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={trainerData.firstName}
           />
         </div>
 
@@ -46,6 +85,8 @@ const trainerSignUpForm = () => {
             name="lastName"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={trainerData.lastName}
           />
         </div>
 
@@ -59,6 +100,8 @@ const trainerSignUpForm = () => {
             name="password"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={trainerData.password}
           />
         </div>
 
@@ -72,6 +115,8 @@ const trainerSignUpForm = () => {
             name="confirmPassword"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={trainerData.confirmPassword}
           />
         </div>
 
@@ -85,6 +130,8 @@ const trainerSignUpForm = () => {
             name="age"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={trainerData.age}
           />
         </div>
 
@@ -92,7 +139,14 @@ const trainerSignUpForm = () => {
           <label htmlFor="sex" className="sign-up-form--label">
             Sex:
           </label>
-          <select name="sex" id="sex" className="sign-up-form--input">
+          <select
+            name="sex"
+            id="sex"
+            className="sign-up-form--input"
+            onChange={handleChange}
+            value={trainerData.sex}
+          >
+            <option value="Choose one">Pick sex</option>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
@@ -105,9 +159,11 @@ const trainerSignUpForm = () => {
           <input
             type="number"
             id="experience"
-            name="experience"
+            name="yearsExperience"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={trainerData.yearsExperience}
           />
         </div>
 
@@ -121,6 +177,8 @@ const trainerSignUpForm = () => {
             name="email"
             className="sign-up-form--input"
             required
+            onChange={handleChange}
+            value={trainerData.email}
           />
         </div>
 
@@ -130,10 +188,12 @@ const trainerSignUpForm = () => {
           </label>
           <textarea
             className="sign-up-form--input"
-            name="about"
+            name="aboutMe"
             id="about"
             cols="10"
             rows="10"
+            onChange={handleChange}
+            value={trainerData.aboutMe}
           ></textarea>
         </div>
 
@@ -153,4 +213,4 @@ const trainerSignUpForm = () => {
   );
 };
 
-export default trainerSignUpForm;
+export default TrainerSignUpForm;
